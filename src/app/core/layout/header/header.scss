@@ -1,0 +1,70 @@
+@import 'utils';
+
+:host {
+    position: fixed;
+    top: 0;
+    height: $headerHeight;
+    min-width:320px;
+    background-color: $white;
+    width: 100%;
+    
+    padding: 0 12px 0 28px;
+    display: flex;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid $grayAlt;
+    align-items: center;
+    color: $darkGray;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+.title {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    left: 50%;
+    margin: 0;
+    top: 50%;
+    width: 100%;
+    max-width: 70rem;
+    justify-content: space-evenly;
+    
+
+    span {
+        color: $darkGray;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 1;
+        margin: 0 0 0 20px;
+        min-width: 110px; // prevent multiline
+        transform: translateY(-1px);
+    }
+}
+
+.i18nButtons{
+    button{
+        margin:0 $gapDefault 0 0;
+    }
+}
+
+.mobileI18nOptions{
+    display: none;
+}
+
+@media #{$tabletPortraitDown} {
+    :host {
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+
+    .title {
+        
+
+        span {
+            font-size: 16px;
+        }
+    }
+}
+

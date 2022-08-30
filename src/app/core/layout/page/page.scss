@@ -1,0 +1,49 @@
+@import 'utils';
+
+.header-wrapper {
+    height: $headerHeight;
+    border-bottom: solid 1px $colorBorder;
+}
+
+.page-wrapper {
+    background-color: $background-light-gray;
+    min-height: calc(100vh - $headerHeight + 1px);
+    position: relative;
+    overflow: auto;
+    transition: opacity .25s ease-in;
+    opacity: 1;
+    padding-bottom: $gapLarge;
+    &.with-background {
+        background: url(/content/img/Los-Angeles-1600.jpg) no-repeat center;
+        background-size: cover;
+    }
+}
+
+:host-context(.loading) .page-wrapper {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    transition: opacity .25s ease-out;
+    opacity: 0;
+    // position: fixed;
+}
+
+:host-context(.loading) .page {
+
+    background-color: $white;
+    position: fixed;
+    overflow: hidden;
+    inset:0;
+
+    @include relative();
+    &::before {
+        content: '';
+        z-index: 1;
+        width: 80px;
+        height: 80px;
+        transform: translate(50%, -50%);
+        background: no-repeat center/contain url(/content/img/spinner.svg);
+
+        @include fixed(50%, 50%);
+    }
+}
